@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            max-width: 100vw;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #333;
+            overflow-x: hidden;
+            background-color: #ced5dd;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        h1,
+        h2,
+        .headline {
+            font-family: 'Georgia', serif;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #EDECEA;
+            width: 100%;
+            min-height: 95vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #EDECEA;
+            z-index: 9999;
+            box-sizing: border-box;
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            margin-top: -2px;
+            margin-bottom: 90px;
+        }
+
+        .nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: transparent;
+            z-index: 9999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 50px;
+            margin-top: 30px;
+            box-sizing: border-box;
+            flex-wrap: wrap;
+        }
+
+        .logo img {
+            width: 90px;
+            height: auto;
+        }
+
+        .menu img {
+            width: 70px;
+            height: auto;
+        }
+
+        .features {
+            display: flex;
+            gap: 30px;
+        }
+
+        .features a {
+            text-decoration: none !important;
+            color: #111 !important;
+            font-family: 'Georgia', serif;
+            font-size: 1.5rem;
+            transition: color 0.1s ease-in;
+        }
+
+        .features a:hover {
+            color: #ffb800 !important;
+        }
+
+        .textandcat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+            width: 100%;
+            gap: 30px;
+            padding: 20px;
+            margin-top: 10px;
+            gap: 50px;
+            box-sizing: border-box;
+            flex-grow: 1;
+        }
+
+        .text_wrapper {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .desktop-title {
+            display: block;
+            font-family: 'Arial Black', sans-serif;
+            font-size: 4rem;
+            margin: 0 0 20px 0;
+            font-weight: 900;
+        }
+
+        .mobile-title {
+            display: none;
+            font-family: 'Arial Black', sans-serif;
+            font-size: 2.2rem;
+            margin: 15px 0;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .text_card {
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid #ffffff;
+            border-radius: 20px;
+            padding: 20px;
+            max-width: 70%;
+            text-align: center;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .text_card h1 {
+            font-family: 'Arial Black', sans-serif;
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .text_card h2 {
+            font-size: 1.8rem;
+            margin-top: 0;
+            font-weight: normal;
+        }
+
+        .text_card p {
+            font-family: 'Brush Script MT', cursive, serif;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .paw {
+            width: 80px;
+            vertical-align: middle;
+            right: 60px;
+            position: relative;
+        }
+
+        .hero_cat {
+            position: relative;
+            bottom: 0px;
+            right: 15%;
+            height: auto;
+            max-height: 500px;
+            z-index: 1;
+        }
+
+        /* Main section  */
+        .main {
+            background-color: #B6BFCB;
+            height: auto;
+            width: 100%;
+        }
+
+        .text1 {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .headline {
+            display: flex;
+            padding: 0 40px 0 40px;
+            align-items: center;
+            font-size: 35px;
+            font-weight: 300;
+        }
+
+        .para {
+            padding: 0 40px;
+            font-weight: 300;
+        }
+
+        .black_paw {
+            height: 30px;
+        }
+
+        #union {
+            display: flex;
+            justify-content: center;
+        }
+
+        .union {
+            padding: 50px;
+            height: 50px;
+        }
+
+        .boxes {
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px 60px;
+            justify-items: center;
+        }
+
+        .box:nth-child(even) {
+            margin-top: 80px;
+        }
+
+        .box {
+            background-color: white;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 340px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 2px 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .box-header {
+            padding: 12px 20px;
+            border-radius: 12px 12px 0 0;
+            font-family: 'Georgia', serif;
+            font-size: 15px;
+            font-weight: bold;
+            color: #111;
+        }
+
+        .box1 .box-header {
+            background-color: #E9BCBE;
+        }
+
+        .box2 .box-header {
+            background-color: #DFD8AA;
+        }
+
+        .box3 .box-header {
+            background-color: #E2B292;
+        }
+
+        .box4 .box-header {
+            background-color: #C2B7B1;
+        }
+
+        .box-content {
+            padding: 20px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .card-paw {
+            position: absolute;
+            bottom: -15px;
+            right: -15px;
+            width: 50px;
+            height: auto;
+            z-index: 5;
+        }
+
+        .yellowsection {
+            background-color: #ffb800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 80px;
+            position: relative;
+            margin-top: 60px;
+            overflow: hidden;
+            flex-wrap: wrap;
+        }
+
+        .photo {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            z-index: 1;
+        }
+
+        .photo img {
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .text {
+            font-family: 'Georgia', serif;
+            font-size: 28px;
+            padding: 10px;
+            line-height: 1.4;
+            max-width: 300px;
+            color: #111;
+            z-index: 2;
+        }
+
+        .feedbackbox {
+            background-color: white;
+            border-radius: 20px;
+            padding: 20px;
+            width: 90%;
+            max-width: 300px;
+            height: 80%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            z-index: 2;
+            box-sizing: border-box;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feedbackbox label {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .feedbackbox input,
+        .feedbackbox textarea {
+            background-color: #e8e8e8;
+            border: 2px solid transparent;
+            border-radius: 6px;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s ease;
+            margin-bottom: 20px;
+        }
+
+        .feedbackbox input:focus,
+        .feedbackbox textarea:focus {
+            border-color: #ffb800;
+        }
+
+        .feedbackbox button {
+            align-self: flex-end;
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .feedbackbox button:hover {
+            background-color: #333;
+        }
+
+        .flower {
+            position: absolute;
+            right: 20px;
+            bottom: -20px;
+            z-index: 1;
+        }
+
+        .flower img {
+            height: 140px;
+        }
+
+        .bottom {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background-color: #c6d0d9;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center
+        }
+
+        .bottomcat {
+            position: absolute;
+            bottom: 200px;
+            z-index: 2;
+            margin-bottom: -2px;
+        }
+
+        .bottomcat img {
+            height: 120px;
+            display: block;
+        }
+
+        .lower {
+            width: 100%;
+            height: 200px;
+            background-color: #b0bcc6;
+            border-top: 2px solid #111;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .social-links,
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-links a,
+        .footer-links a {
+            text-decoration: none;
+            color: #111;
+            transition: color 0.2s ease;
+        }
+
+        .social-links a:hover,
+        .footer-links a:hover {
+            color: #ffb800;
+        }
+
+        .social-links a {
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: #444;
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: #555;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .page-section {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .page-active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Behavior Section */
+        .behavior-hero {
+            position: relative;
+            background-color: #BACC9E;
+            width: 100%;
+            padding-top: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .bh-cloud-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2;
+            filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.15));
+        }
+
+        .herotextandcat {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 60px;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+            z-index: 3;
+        }
+
+        .bh-black-cat {
+            height: 380px;
+            width: auto;
+            display: block;
+            margin-bottom: -1px;
+        }
+
+        .bh-text {
+            font-family: 'Georgia', serif;
+            font-size: 1.5rem;
+            line-height: 1.4;
+            color: #111;
+            max-width: 550px;
+            padding-bottom: 90px;
+        }
+
+        #behavior .main {
+            background-color: #B2A28F;
+            padding: 60px 40px 1000px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 75px;
+        }
+
+
+        .bh-three-cats {
+            justify-self: center;
+            height: 80px;
+            margin-bottom: -10px;
+        }
+
+        .Btext1,
+        .Btext2,
+        .Btext3,
+        .Btext4 {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .Btext1>div:first-child,
+        .Btext2>div:first-child,
+        .Btext3>div:first-child,
+        .Btext4>div:first-child {
+            font-family: 'Georgia', serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #111;
+            text-align: left;
+        }
+
+        .Btext1>div:nth-child(2),
+        .Btext2>div:nth-child(2),
+        .Btext3>div:nth-child(2) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #222;
+        }
+
+        .Btext1 img,
+        .Btext2 img,
+        .Btext3 img {
+            width: 140px;
+            height: auto;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
+            flex-shrink: 0;
+        }
+
+        .Btext1>div:nth-child(2) {
+            flex-direction: row-reverse;
+        }
+
+        .Btext2>div:nth-child(2) {
+            flex-direction: row;
+        }
+
+        .Btext3>div:nth-child(2) {
+            flex-direction: row-reverse;
+        }
+
+        .Btext4>div:nth-child(2) {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            justify-content: center;
+            gap: 15px 40px;
+            align-items: end;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #222;
+        }
+
+        .Btext4>div:nth-child(2)>div:nth-child(1) {
+            grid-column: 1;
+            grid-row: 1;
+            text-align: left;
+        }
+
+        .Btext4>div:nth-child(2)>div:nth-child(2) {
+            grid-column: 1;
+            grid-row: 2;
+            margin: 0;
+        }
+
+        .Btext4>div:nth-child(2)>img {
+            grid-column: 2;
+            grid-row: 1 / span 2;
+            width: 160px;
+        }
+
+        .cat-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 10px auto 0 auto;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .cat-list li {
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .cat-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            width: 14px;
+            height: 14px;
+            background-image: url('paw_black1.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.6;
+        }
+
+        .behavior-title {
+            font-weight: 600;
+            color: #111;
+        }
+
+        /* Small device */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+
+            }
+
+            .logo {
+                order: 0;
+            }
+
+            .logo img {
+                width: 70px;
+            }
+
+            .menu img {
+                width: 50px;
+                position: absolute;
+                right: 20px;
+                top: 40px;
+            }
+
+            .features {
+                display: flex;
+                justify-content: center;
+                gap: 12px;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            .features a {
+                font-size: 13px;
+            }
+
+            .textandcat {
+                flex-direction: column-reverse;
+                flex-wrap: nowrap;
+                justify-content: center;
+                padding-top: 130px;
+                gap: 20px;
+                padding-bottom: 40px;
+            }
+
+            .cat_wrapper {
+                order: 0;
+                text-align: center;
+            }
+
+            .desktop-title {
+                display: block;
+            }
+
+            .mobile-title {
+                display: block;
+                font-size: 1.8rem;
+                margin: 15px 0;
+                font-weight: 900;
+                text-align: center;
+            }
+
+            .text_card {
+                padding: 10px;
+            }
+
+            .text_card h1 {
+                font-size: 1.5rem;
+            }
+
+            .text_card h2 {
+                font-size: 1rem;
+            }
+
+            .text_card p {
+                font-size: 0.9rem;
+            }
+
+            .hero_cat {
+                max-height: 250px;
+            }
+
+            .headline {
+                font-size: 24px;
+                padding: 0 20px;
+            }
+
+            .para {
+                padding: 10px 20px;
+                font-size: 15px;
+            }
+
+            .boxes {
+                grid-template-columns: 1fr;
+                gap: 25px 15px;
+                padding: 0 15px;
+                box-sizing: border-box;
+            }
+
+            .box:nth-child(even) {
+                margin-top: 0;
+            }
+
+            .box-header {
+                padding: 8px 10px;
+                font-size: 12px;
+            }
+
+            .box-content {
+                padding: 10px;
+                font-size: 11px;
+            }
+
+            .card-paw {
+                width: 35px;
+                height: auto;
+                bottom: -10px;
+                right: -10px;
+            }
+
+            .yellowsection {
+                flex-direction: column;
+                padding: 50px 20px 50px 20px;
+                gap: 30px;
+            }
+
+            .yellowsection .text {
+                max-width: 90%;
+                font-size: 22px;
+                text-align: center;
+                z-index: 3;
+            }
+
+            .feedbackbox {
+                width: 70%;
+                max-width: 300px;
+                padding: 10px;
+                z-index: 3;
+                margin: 0 auto;
+            }
+
+            .feedbackbox label {
+                font-size: 12px;
+                margin-bottom: 4px;
+            }
+
+            .feedbackbox textarea {
+                height: 55px;
+            }
+
+            .flower {
+                display: block;
+                right: -10px;
+                z-index: 1;
+                opacity: 0.5
+            }
+
+            .feedbackbox button {
+                padding: 8px 20px;
+                font-size: 13px;
+            }
+
+            .photo {
+                height: 100%;
+                top: 0;
+                bottom: 0;
+                left: -10px;
+                z-index: 1;
+                opacity: 0.5;
+            }
+
+            /* Footer */
+            .bottomcat img {
+                height: 70px;
+            }
+
+            .social-links a {
+                font-size: 12px;
+            }
+
+            .footer-links a {
+                font-size: 11px;
+            }
+
+            .copyright {
+                font-size: 10px;
+            }
+
+            /*  Behavior Page  */
+            .behavior-hero {
+                padding-top: 150px;
+            }
+
+            .herotextandcat {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                padding: 0 20px;
+            }
+
+            .bh-text {
+                padding-bottom: 0;
+                font-size: 1.2rem;
+                text-align: center;
+            }
+
+            .bh-black-cat {
+                height: 260px;
+            }
+
+            #behavior .main {
+                padding: 40px 20px;
+                gap: 50px;
+            }
+
+            .Btext1>div:nth-child(2),
+            .Btext2>div:nth-child(2),
+            .Btext3>div:nth-child(2),
+            .Btext4>div:nth-child(2) {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center;
+                text-align: left;
+            }
+
+            .Btext1 img,
+            .Btext2 img,
+            .Btext3 img,
+            .Btext4 img {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div style="background-color: #EDECEA; width: 100%;">
+        <div class="nav">
+            <div class="logo">
+                <a href="javascript:void(0);" onclick="switchPage('home')">
+                    <img src="cat_logo.svg" alt="Logo">
+                </a>
+            </div>
+            <div class="features">
+                <a href="#" onclick="switchPage('home')">Home</a>
+                <a href="#" onclick="switchPage('calculation')">Age Calculation</a>
+                <a href="#" onclick="switchPage('behavior')">Behavior</a>
+                <a href="#" onclick="switchPage('food')">Food</a>
+            </div>
+            <div class="menu">
+                <img src="Vector 18.svg" alt="Header pattern">
+            </div>
+        </div>
+    </div>
+    <!-- Home page -->
+    <div id="home" class="page-section page-active">
+        <div class="hero">
+            <img class="header" src="header.svg" width="1440%" height="85" alt="Header pattern">
+            <div class="textandcat">
+                <div class="text_card">
+                    <h1>MEOW MEOW !!</h1>
+                    <h2>No Thoughts. Just Fluff.</h2>
+                    <p>The lights are on, but nobody is home. Welcome to your guide for loving a creature whose brain is
+                        90%
+                        elevator music and 10% sudden, unprovoked zoomies.</p>
+                </div>
+                <div>
+                    <img class="hero_cat" src="hero_cat.svg" alt="Staring Black Cat">
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="text1">
+                <div class="headline">
+                    <img class="black_paw" src="paw_black1.svg" alt="Staring Black Cat">
+                    <p> The Magic of Cats: Nature's Perfect Companions</p>
+                </div>
+                <div class="para">
+                    <p> Long before they were ruling the internet with funny videos, cats were revered as sacred
+                        protectors,
+                        skilled hunters, and beloved companions. For thousands of years, these graceful creatures have
+                        shared our homes and our hearts, offering a unique blend of wild instinct and gentle affection.
+                    </p>
+                    <p> Whether you are drawn to their mysterious charm or their playful antics, cats make extraordinary
+                        pets. They are fiercely independent yet capable of forming deep, lifelong bonds with their human
+                        families.</p>
+                </div>
+            </div>
+            <div class="text1">
+                <div class="headline">
+                    <img class="black_paw" src="paw_black1.svg" alt="Staring Black Cat">
+                    <p> What Makes Cats So Special?</p>
+                </div>
+                <div class="para">
+                    <p> Cats are fascinating creatures, biologically engineered to be master explorers and expressive
+                        companions.
+                        Here are just a few reasons why we find them so captivating:</p>
+                    <div class="boxes">
+                        <div class="box box1">
+                            <div class="box-header"><u>A Unique Language</u></div>
+                            <div class="box-content">While cats communicate with each other primarily through scent and
+                                body
+                                language, they actually developed the "meow" specifically to talk to humans! From the
+                                soothing vibration of a purr to a demanding chirp for dinner, every cat has their own
+                                distinct vocabulary.</div>
+                            <img class="card-paw" src="white_paw.svg" alt="paw">
+                        </div>
+
+                        <div class="box box2">
+                            <div class="box-header"><u>Incredible Senses</u></div>
+                            <div class="box-content">A cat's world is rich with sensory detail. They possess exceptional
+                                night vision, a sense of hearing that can detect the faintest rustle of a mouse, and
+                                highly
+                                sensitive whiskers that act as environmental radar to help them navigate tight spaces.
+                            </div>
+                            <img class="card-paw" src="white_paw.svg" alt="paw">
+                        </div>
+
+                        <div class="box box3">
+                            <div class="box-header"><u>Acrobatic Agility</u></div>
+                            <div class="box-content">Thanks to a highly flexible spine and a powerful inner-ear system,
+                                cats
+                                possess an innate "righting reflex." This remarkable agility allows them to leap to
+                                great
+                                heights, balance on narrow ledges, and gracefully land on their feet.</div>
+                            <img class="card-paw" src="white_paw.svg" alt="paw">
+                        </div>
+
+                        <div class="box box4">
+                            <div class="box-header"><u>Affectionate on Their Terms</u></div>
+                            <div class="box-content">Cats often get a reputation for being aloof, but this is simply a
+                                myth.
+                                They show love in subtle, profound ways—a slow blink from across the room, a gentle
+                                headbutt
+                                (bunting) against your leg, or choosing to curl up and sleep next to you.</div>
+                            <img class="card-paw" src="white_paw.svg" alt="paw">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="yellowsection">
+                <div class="photo"><img src="black_yellow_cat.svg" alt="cat"></div>
+                <div class="text">Help us improve! What is one thing you wish this website had?</div>
+                <form class="feedbackbox" onsubmit="submitFeedback(event)">
+                    <label for="userEmail">Enter your email</label>
+                    <input type="email" id="userEmail" name="email" required>
+
+                    <label for="userFeedback">Write feedback</label>
+                    <textarea id="userFeedback" name="feedback" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+                <div class="flower"><img src="flower.svg" alt=""></div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Behavior -->
+    <div id="behavior" class="page-section">
+        <div class="behavior-hero">
+            <img class="bh-cloud-top" src="white_cloud.svg" alt="Cloud">
+            <div class="herotextandcat">
+                <div class="bh-text">
+                    Cats are highly expressive creatures, constantly communicating their emotions and intentions through
+                    a
+                    complex
+                    language of body postures and vocalizations. Understanding this behavior is the key to building a
+                    strong,
+                    trusting bond with your feline companion, as every twitch, blink, and meow serves as a window into
+                    their
+                    current
+                    state of mind.
+                </div>
+
+                <img class="bh-black-cat" src="black_cat.svg" alt="Black Cat Looking Up">
+            </div>
+        </div>
+        <div class="main">
+            <img class="bh-three-cats" src="three_cats.svg" alt="Three Small Cats">
+            <div class="Btext1">
+                <div>The Eyes: Windows to the Feline Mind</div>
+                <div>
+                    <ul class="cat-list">
+                        <li><span class="behavior-title">Slow Blink:</span> Shows immense trust and affection.</li>
+                        <li><span class="behavior-title">Wide-Open:</span> Indicates high alertness or fear.</li>
+                        <li><span class="behavior-title">Dilated Pupils:</span> High stimulation, such as excitement,
+                            surprise,
+                            or fear.</li>
+                        <li><span class="behavior-title">Constricted (Slit) Pupils:</span> Aggression, annoyance, or
+                            adjusting
+                            to bright light.</li>
+                    </ul>
+                    <img src="image1.png" alt="">
+                </div>
+            </div>
+            <div class="Btext2">
+                <div>The Ears: Feline Satellite Dishes</div>
+                <div>
+                    <ul class="cat-list">
+                        <li><span class="behavior-title">Forward:</span> Relaxed, content, and feeling safe.</li>
+                        <li><span class="behavior-title">Straight Up:</span> Highly alert and actively listening.</li>
+                        <li><span class="behavior-title">Flattened (Airplane Ears):</span> Agitated, anxious, or
+                            fearful.</li>
+                        <li><span class="behavior-title">Pinned Back:</span> Defensive, ready to fight, and a warning to
+                            back
+                            away.</li>
+                    </ul>
+                    <img src="image2.png" alt="">
+                </div>
+            </div>
+            <div class="Btext3">
+                <div>The Tail: The Emotional Barometer</div>
+                <div>
+                    <ul class="cat-list">
+                        <li><span class="behavior-title">Straight Up:</span> A happy, confident, and friendly greeting.
+                        </li>
+                        <li><span class="behavior-title">Puffed Out:</span> Terrified or startled; trying to look
+                            bigger.</li>
+                        <li><span class="behavior-title">Tucked:</span> Extreme anxiety, submission, or wanting to hide.
+                        </li>
+                        <li><span class="behavior-title">Slow Swish:</span> Intensely focused on a target (like a toy or
+                            prey).
+                        </li>
+                        <li><span class="behavior-title">Thrashing/Thumping:</span> Highly annoyed and demanding to be
+                            left alone.</li>
+                    </ul>
+                    <img src="image3.png" alt="">
+                </div>
+            </div>
+            <div class="Btext4">
+                <div>Vocal Sounds: Speaking to Humans</div>
+                <div>
+                    <div>While kittens meow to their mothers, adult cats rarely meow at other felines. They developed
+                        this
+                        vocalization almost exclusively to communicate with humans.
+                    </div>
+                    <ul class="cat-list">
+                        <li><span class="behavior-title">Meow:</span> Used almost exclusively with humans to demand
+                            food,
+                            attention, or access.</li>
+                        <li><span class="behavior-title">Purr:</span> Deep contentment, or occasionally self-soothing
+                            when
+                            stressed or in pain.</li>
+                        <li><span class="behavior-title">Chirp/Trill:</span> A friendly greeting to get your attention
+                            or ask
+                            you to follow.</li>
+                        <li><span class="behavior-title">Chatter:</span> Excitement and frustration when watching
+                            unreachable
+                            prey.</li>
+                        <li><span class="behavior-title">Hiss/Growl:</span> A clear warning that they feel threatened
+                            and need
+                            space.</li>
+                    </ul>
+                    <img src="green_cat.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Age calculation -->
+    <div id="calculation" class="page-section">
+        <div class="main" style="min-height: 60vh; padding-top: 60px;">
+            <div class="text1">
+                <div class="headline">
+                    <img class="black_paw" src="paw_black1.svg" alt="Paw">
+                    <p>Age Calculation</p>
+                </div>
+                <div class="para">
+                    <p>Age calculator coming soon...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Food -->
+    <div id="food" class="page-section">
+        <div class="main" style="min-height: 60vh; padding-top: 60px;">
+            <div class="text1">
+                <div class="headline">
+                    <img class="black_paw" src="paw_black1.svg" alt="Paw">
+                    <p>Cat Food & Diet</p>
+                </div>
+                <div class="para">
+                    <p>Food recommendations coming soon...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="bottom">
+        <div class="bottomcat"><img src="bottom_black_cat.svg" alt=""></div>
+        <div class="lower">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">Github</a>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2026 YourWebsite. All rights reserved.
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script type="module">
+    window.submitFeedback = (event) => {
+        event.preventDefault();
+        alert("Thank you for your feedback! 🐾\n\nPlease note: This is currently a frontend-only demo, so your message hasn't been sent to a backend database.");
+        document.getElementById('userEmail').value = "";
+        document.getElementById('userFeedback').value = "";
+    }
+
+    window.switchPage = (pageId) => {
+        let pages = document.querySelectorAll('.page-section');
+        pages.forEach(page => page.classList.remove('page-active'));
+        document.getElementById(pageId).classList.add('page-active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</html>
