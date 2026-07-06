@@ -1,0 +1,24 @@
+{
+  "name": "cat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/varshajangid07/MeowCat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/varshajangid07/MeowCat/issues"
+  },
+  "homepage": "https://github.com/varshajangid07/MeowCat#readme"
+}

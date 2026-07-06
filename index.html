@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -400,7 +399,7 @@
             position: relative;
             width: 100%;
             height: 400px;
-            background-color: #c6d0d9;
+            background-color: #B6BFCB;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -680,6 +679,527 @@
             color: #111;
         }
 
+        /* Food  Section */
+        .food-hero {
+            position: relative;
+            width: 100%;
+            min-height: 95vh;
+            background-color: #FDFDFD;
+            display: flex;
+            align-items: center;
+            padding-top: 150px;
+            z-index: 20;
+        }
+
+        .hanging-decorations {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .black-ceiling {
+            width: 100%;
+            height: 20px;
+            background-color: #111111;
+        }
+
+        .hanging-fishes {
+            display: flex;
+            justify-content: center;
+            gap: 7vw;
+            width: 100%;
+            padding-left: 2%;
+        }
+
+        .hanging-fish {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .string {
+            width: 1.5px;
+            height: 90px;
+            background-color: #555555;
+        }
+
+        .hanging-fish img {
+            height: 40px;
+            width: auto;
+            margin-top: -2px;
+            transform-origin: top center;
+            animation: fruitDrop 10s ease-in infinite;
+        }
+
+        .hanging-fish:nth-child(1) img {
+            animation-delay: 0s;
+        }
+
+        .hanging-fish:nth-child(2) img {
+            animation-delay: 1.5s;
+        }
+
+        .hanging-fish:nth-child(3) img {
+            animation-delay: 3.2s;
+        }
+
+        .hanging-fish:nth-child(4) img {
+            animation-delay: 0.8s;
+        }
+
+        .hanging-fish:nth-child(5) img {
+            animation-delay: 4.5s;
+        }
+
+        .hanging-fish:nth-child(6) img {
+            animation-delay: 2.1s;
+        }
+
+        .hanging-fish:nth-child(7) img {
+            animation-delay: 5.8s;
+        }
+
+        @keyframes fruitDrop {
+
+            0%,
+            10% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 1;
+            }
+
+            12% {
+                transform: translateX(-3px) rotate(-10deg);
+                opacity: 1;
+            }
+
+            14% {
+                transform: translateX(3px) rotate(10deg);
+                opacity: 1;
+            }
+
+            16% {
+                transform: translateX(-3px) rotate(-10deg);
+                opacity: 1;
+            }
+
+            18% {
+                transform: translateX(3px) rotate(10deg);
+                opacity: 1;
+            }
+
+            20% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 1;
+            }
+
+            25% {
+                transform: translateY(40px) rotate(20deg);
+                opacity: 1;
+            }
+
+            35% {
+                transform: translateY(800px) rotate(70deg);
+                opacity: 0;
+            }
+
+            95% {
+                transform: translateY(800px) rotate(70deg);
+                opacity: 0;
+            }
+
+            96% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .food-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+            width: 100%;
+            gap: 40px;
+            z-index: 3;
+        }
+
+        .food-text {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .food-text h1 {
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 2.2rem;
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .food-text p {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .food-scatter {
+            position: absolute;
+            bottom: -80px;
+            left: -30px;
+            z-index: 30;
+        }
+
+        .food-scatter img {
+            position: absolute;
+        }
+
+        .f-bone-black {
+            width: 60px;
+            top: 0;
+            left: 0;
+        }
+
+        .f-bone-brown {
+            width: 30px;
+            top: -30px;
+            left: 80px;
+        }
+
+        .f-bone-pink {
+            width: 70px;
+            top: 120px;
+            left: 60px;
+        }
+
+        .food-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .food-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+        }
+
+        .food-main-section {
+            background-color: #B6BFCB;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .bg-paw {
+            position: absolute;
+            z-index: 1;
+            width: 60px;
+            opacity: 0.6;
+            animation: pawFade 8s ease-in-out infinite;
+        }
+
+        @keyframes pawFade {
+            0% {
+                opacity: 0;
+            }
+
+            25% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+
+            75% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .paw-tr {
+            top: 5%;
+            right: 10%;
+            width: 80px;
+            animation-delay: 0s;
+        }
+
+        .paw-tc {
+            top: 18%;
+            right: 40%;
+            animation-delay: 2.5s;
+        }
+
+        .paw-mr {
+            top: 45%;
+            right: 15%;
+            width: 70px;
+            animation-delay: 1s;
+        }
+
+        .paw-bl {
+            bottom: 350px;
+            left: 30%;
+            width: 80px;
+            animation-delay: 4.5s;
+        }
+
+        .food-content-layout {
+            display: flex;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .food-sidebar {
+            flex: 0 0 250px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .scratching-cat {
+            width: 100%;
+            height: auto;
+            margin-top: -100px;
+            object-fit: contain;
+        }
+
+        .food-article {
+            flex: 1;
+            padding: 80px 40px 100px 40px;
+            color: #333;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .article-heading {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .fish-icon {
+            width: 45px;
+            height: auto;
+        }
+
+        .food-article h2 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: #333;
+        }
+
+        .food-article h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 40px 0 15px 0;
+        }
+
+        .food-article .margin-top {
+            margin-top: 60px;
+        }
+
+        .food-article p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            max-width: 700px;
+        }
+
+        .intro-text {
+            font-size: 1rem !important;
+            font-weight: 500;
+            margin-bottom: 50px !important;
+        }
+
+        .custom-list {
+            list-style-type: none;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .custom-list li {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            max-width: 650px;
+        }
+
+        .food-quote-section {
+            background-color: #FF8F8F;
+            padding: 80px 40px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+        }
+
+        .paw-quote-1 {
+            top: 20px;
+            left: 30%;
+            width: 50px;
+            opacity: 0.4;
+            animation-delay: 1.5s;
+        }
+
+        .paw-quote-2 {
+            bottom: 40px;
+            right: 15%;
+            width: 70px;
+            opacity: 0.4;
+            animation-delay: 5s;
+        }
+
+        .quote-text {
+            color: #ffffff;
+            font-size: 1.4rem;
+            line-height: 1.5;
+            text-align: center;
+            max-width: 800px;
+            font-family: system-ui, -apple-system, sans-serif;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+        }
+
+        .quote-cat-icon {
+            position: absolute;
+            bottom: 20px;
+            right: 25%;
+            width: 40px;
+            height: auto;
+            z-index: 2;
+        }
+
+
+        /* Age Calculation section */
+        .calc-main {
+            background-color: #B6BFCB; 
+            min-height: 95vh;
+            padding: 120px 20px 80px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .calc-container {
+            background: #ffffff;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 48px;
+            margin-top: 150px;
+            max-width: 600px;
+            width: 700px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            text-align: center;
+        }
+
+        .calc-header {
+            margin-bottom: 40px;
+        }
+
+        .calc-header h2 {
+            font-weight: 600;
+            font-size: 1.8rem;
+            margin: 0 0 10px 0;
+            color: #1A202C;
+            letter-spacing: -0.5px;
+        }
+
+        .calc-subtitle {
+            font-size: 1rem;
+            color: #718096;
+            margin: 0;
+        }
+
+        .calc-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #4A5568;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .input-group input {
+            background-color: #ffffff;
+            border: 1px solid #CBD5E0;
+            border-radius: 6px;
+            padding: 16px;
+            font-size: 1.25rem;
+            color: #2D3748;
+            transition: all 0.2s ease;
+            outline: none;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .input-group input:focus {
+            border-color: #4299E1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+        }
+
+        .exchange-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 25px;
+            background: #F7FAFC;
+            border-radius: 50%;
+            padding: 12px;
+            border: 1px solid #E2E8F0;
+        }
+
+        .calc-result {
+            background-color: #F7FAFC;
+            color: #2D3748;
+            padding: 20px;
+            border-left: 4px solid #ff6b6b;
+            border-radius: 4px;
+            font-size: 1rem;
+            line-height: 1.6;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+
+
         /* Small device */
         @media (max-width: 768px) {
             .nav {
@@ -911,13 +1431,134 @@
             .Btext4 img {
                 margin-top: 20px;
             }
+
+            /* Food Page */
+            .hanging-fishes {
+                gap: 5vw;
+            }
+
+            .string {
+                height: 150px;
+            }
+
+            .hanging-fish img {
+                height: 30px;
+            }
+
+            .bg-paw {
+                width: 40px;
+            }
+
+            .paw-tr {
+                top: 2%;
+                right: 5%;
+                width: 50px;
+            }
+
+            .paw-tc {
+                top: 25%;
+                right: 5%;
+            }
+
+            .paw-mr {
+                top: 50%;
+                right: 5%;
+                width: 45px;
+            }
+
+            .paw-bl {
+                bottom: 180px;
+                left: 5%;
+                width: 55px;
+            }
+
+            .paw-quote-1 {
+                top: 15px;
+                left: 5%;
+                width: 35px;
+            }
+
+            .paw-quote-2 {
+                bottom: 15px;
+                right: 5%;
+                width: 40px;
+            }
+
+            .food-container {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 80px;
+            }
+
+            .food-scatter {
+                display: none;
+            }
+
+            .food-image {
+                justify-content: center;
+            }
+
+            .food-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .food-content-layout {
+                flex-direction: column;
+            }
+
+            .food-sidebar {
+                flex: auto;
+                order: 2;
+                padding: 0 20px;
+            }
+
+            .scratching-cat {
+                margin-top: 0;
+                max-width: 150px;
+            }
+
+            .food-article {
+                order: 1;
+                padding: 40px 20px;
+            }
+
+            .quote-text {
+                font-size: 1.1rem;
+            }
+
+            .quote-cat-icon {
+                right: 10px;
+            }
+
+            /* Age Calculation Page */
+            .calc-result {
+                font-size: 1rem;
+            }
+            .calc-main {
+                padding-top: 100px;
+            }
+            .calc-container {
+                padding: 30px 20px;
+            }
+            .calc-box {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .exchange-icon {
+                margin-top: 0;
+                transform: rotate(90deg);
+                padding: 8px;
+            }
+            .calc-header h2 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 
 <body>
     <!-- Navigation -->
-    <div style="background-color: #EDECEA; width: 100%;">
+    <div style=" width: 100%;">
         <div class="nav">
             <div class="logo">
                 <a href="javascript:void(0);" onclick="switchPage('home')">
@@ -1044,14 +1685,9 @@
             <div class="herotextandcat">
                 <div class="bh-text">
                     Cats are highly expressive creatures, constantly communicating their emotions and intentions through
-                    a
-                    complex
-                    language of body postures and vocalizations. Understanding this behavior is the key to building a
-                    strong,
-                    trusting bond with your feline companion, as every twitch, blink, and meow serves as a window into
-                    their
-                    current
-                    state of mind.
+                    a complex language of body postures and vocalizations. Understanding this behavior is the key to
+                    building a strong, trusting bond with your feline companion, as every twitch, blink, and meow serves
+                    as a window into their current state of mind.
                 </div>
 
                 <img class="bh-black-cat" src="black_cat.svg" alt="Black Cat Looking Up">
@@ -1112,26 +1748,14 @@
             <div class="Btext4">
                 <div>Vocal Sounds: Speaking to Humans</div>
                 <div>
-                    <div>While kittens meow to their mothers, adult cats rarely meow at other felines. They developed
-                        this
-                        vocalization almost exclusively to communicate with humans.
+                    <div>While kittens meow to their mothers, adult cats rarely meow at other felines. They developed this vocalization almost exclusively to communicate with humans.
                     </div>
                     <ul class="cat-list">
-                        <li><span class="behavior-title">Meow:</span> Used almost exclusively with humans to demand
-                            food,
-                            attention, or access.</li>
-                        <li><span class="behavior-title">Purr:</span> Deep contentment, or occasionally self-soothing
-                            when
-                            stressed or in pain.</li>
-                        <li><span class="behavior-title">Chirp/Trill:</span> A friendly greeting to get your attention
-                            or ask
-                            you to follow.</li>
-                        <li><span class="behavior-title">Chatter:</span> Excitement and frustration when watching
-                            unreachable
-                            prey.</li>
-                        <li><span class="behavior-title">Hiss/Growl:</span> A clear warning that they feel threatened
-                            and need
-                            space.</li>
+                        <li><span class="behavior-title">Meow:</span> Used almost exclusively with humans to demand food, attention, or access.</li>
+                        <li><span class="behavior-title">Purr:</span> Deep contentment, or occasionally self-soothing when stressed or in pain.</li>
+                        <li><span class="behavior-title">Chirp/Trill:</span> A friendly greeting to get your attention or ask you to follow.</li>
+                        <li><span class="behavior-title">Chatter:</span> Excitement and frustration when watching unreachable prey.</li>
+                        <li><span class="behavior-title">Hiss/Growl:</span> A clear warning that they feel threatened and need space.</li>
                     </ul>
                     <img src="green_cat.svg" alt="">
                 </div>
@@ -1141,14 +1765,36 @@
 
     <!-- Age calculation -->
     <div id="calculation" class="page-section">
-        <div class="main" style="min-height: 60vh; padding-top: 60px;">
-            <div class="text1">
-                <div class="headline">
-                    <img class="black_paw" src="paw_black1.svg" alt="Paw">
-                    <p>Age Calculation</p>
+        <div class="calc-main">
+            <div class="calc-container">
+                <div class="calc-header">
+                    <h2>Feline Age Equivalency</h2>
+                    <p class="calc-subtitle">Calculate the physiological age of a cat relative to human developmental stages.</p>
                 </div>
-                <div class="para">
-                    <p>Age calculator coming soon...</p>
+
+                <div class="calc-box">
+                    <div class="input-group">
+                        <label for="humanInput">Human Years</label>
+                        <input type="number" id="humanInput" placeholder="e.g., 25" min="0" step="1">
+                    </div>
+
+                    <div class="exchange-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7 10v12"></path>
+                            <path d="M15 14v-8"></path>
+                            <path d="M3 14l4 4 4-4"></path>
+                            <path d="M19 10l-4-4-4 4"></path>
+                        </svg>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="catInput">Cat Years</label>
+                        <input type="number" id="catInput" placeholder="e.g., 2" min="0" step="0.1">
+                    </div>
+                </div>
+
+                <div class="calc-result" id="calcMessage">
+                    Enter a value above to calculate the life stage.
                 </div>
             </div>
         </div>
@@ -1156,15 +1802,103 @@
 
     <!-- Food -->
     <div id="food" class="page-section">
-        <div class="main" style="min-height: 60vh; padding-top: 60px;">
-            <div class="text1">
-                <div class="headline">
-                    <img class="black_paw" src="paw_black1.svg" alt="Paw">
-                    <p>Cat Food & Diet</p>
+        <div class="food-hero">
+
+            <div class="hanging-decorations">
+                <div class="black-ceiling"></div>
+                <div class="hanging-fishes">
+                    <div class="hanging-fish">
+                        <div class="string"></div><img src="fish.svg" alt="purple bone">
+                    </div>
+                    <div class="hanging-fish">
+                        <div class="string"></div><img src="fish2.svg" alt="brown bone">
+                    </div>
+                    <div class="hanging-fish">
+                        <div class="string"></div><img src="fish3.svg" alt="pink bone">
+                    </div>
+                    <div class="hanging-fish">
+                        <div class="string"></div><img src="fish4.svg" alt="orange bone">
+                    </div>
+                    <div class="hanging-fish">
+                        <div class="string"></div><img src="fish5.svg" alt="black bone">
+                    </div>
+                    <div class="hanging-fish">
+                        <div class="string"></div><img src="fish6.svg" alt="yellow bone">
+                    </div>
+                    <div class="hanging-fish">
+                        <div class="string"></div><img src="fish7.svg" alt="green bone">
+                    </div>
                 </div>
-                <div class="para">
-                    <p>Food recommendations coming soon...</p>
+            </div>
+
+            <div class="food-container">
+                <div class="food-text">
+                    <h1>What's Mine is Mine.<br>What's Yours is Also Mine.</h1>
+                    <p>Documenting the daily scam of a creature who has a full bowl of premium food, yet still commits  petty felonies for a single bite of your ham.</p>
+                    <div class="food-scatter">
+                        <img src="fish8.svg" class="f-bone-black" alt="black bone large">
+                        <img src="fish9.svg" class="f-bone-brown" alt="brown bone small">
+                        <img src="fish10.svg" class="f-bone-pink" alt="pink bone horizontal">
+                    </div>
                 </div>
+
+                <div class="food-image">
+                    <img src="food_hero_pic.png" alt="Cat stealing sandwich">
+                </div>
+            </div>
+        </div>
+        <!-- Food Main section -->
+        <div class="food-main-section">
+            <img src="bg_paw.svg" class="bg-paw paw-tr" alt="paw print">
+            <img src="bg_paw.svg" class="bg-paw paw-tc" alt="paw print">
+            <img src="bg_paw.svg" class="bg-paw paw-mr" alt="paw print">
+            <img src="bg_paw.svg" class="bg-paw paw-bl" alt="paw print">
+            <div class="food-content-layout">
+                <div class="food-sidebar">
+                    <img src="Scratching.svg" class="scratching-cat" alt="Black cat scratching">
+                </div>
+                <div class="food-article">
+                    <div class="article-heading">
+                        <img src="green_fish.svg" class="fish-icon" alt="Green fish">
+                        <h2>Fuel for the Fluff</h2>
+                    </div>
+                    <p class="intro-text">Because your cat is an "obligate carnivore," they need meat-based protein to stay healthy—think of it as the fuel they need to keep their brain at 90% elevator music.</p>
+                    <h3>What's on the Menu?</h3>
+                    <p>Wet Food: The hydrating, aromatic mush. Perfect for keeping their kidneys happy and making them feel like a gourmet hunter.</p>
+                    <p>Dry Food: The convenient crunch. Great for easy snacking, and the texture even helps keep their teeth clean.</p>
+                    <p>A Balanced Life: Kittens need to eat 3-5 times a day, while adults and seniors generally do great with 2 meals. Always follow the guidelines on the package—they're the real experts on portion
+                        control!</p>
+
+                    <h3 class="margin-top">The "Absolutely Not" List</h3>
+                    <p>Your cat will try to steal your snacks, but keep these far away from their paws:</p>
+                    <ul class="custom-list">
+                        <li>The Big No-Nos: Onions, garlic, chocolate, grapes, raisins, and caffeine.</li>
+                        <li>The "Wait, Really?" List: Alcohol, dairy (most cats are lactose intolerant!), raw meat/eggs,
+                            and any dog food—it lacks the taurine they need to see and function.</li>
+                        <li>The Danger Zone: Cooked bones (they splinter!) and sugar-free treats containing Xylitol.
+                        </li>
+                    </ul>
+
+                    <h3 class="margin-top">How to Spot a Thriving Cat</h3>
+                    <p>If your feeding routine is working, you'll see:</p>
+                    <ul class="custom-list">
+                        <li>A shiny, soft coat.</li>
+                        <li>Steady energy levels (for those 3 AM zoomies!).</li>
+                        <li>Clear eyes and a healthy appetite.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="food-quote-section">
+                <img src="bg_paw.svg" class="bg-paw paw-quote-1" alt="paw print">
+                <img src="bg_paw.svg" class="bg-paw paw-quote-2" alt="paw print">
+                <p class="quote-text">
+                    "Owners of dogs will have noticed that, if you provide them with food and water and shelter and
+                    affection, they will think you are god. Whereas owners of cats are compelled to realize that, if you
+                    provide them with food and water and shelter and affection, they draw the conclusion that they are
+                    gods." <br>— Christopher Hitchens
+                </p>
+                <img src="white_paw.svg" class="quote-cat-icon" alt="Cat face icon">
             </div>
         </div>
     </div>
@@ -1175,31 +1909,54 @@
         <div class="lower">
             <div class="footer-content">
                 <div class="social-links">
-                    <a href="#">Instagram</a>
-                    <a href="#">Github</a>
+                    <a href="https://www.linkedin.com/in/varsha-jangid-675120304">Linkedin</a>
+                    <a href="https://github.com/varshajangid07">Github</a>
                 </div>
-                <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Contact</a>
-                </div>
+
                 <div class="copyright">
-                    &copy; 2026 YourWebsite. All rights reserved.
+                    &copy; 2026.
                 </div>
 
             </div>
         </div>
     </div>
 
-</body>
-
 <script type="module">
-    window.submitFeedback = (event) => {
-        event.preventDefault();
-        alert("Thank you for your feedback! 🐾\n\nPlease note: This is currently a frontend-only demo, so your message hasn't been sent to a backend database.");
-        document.getElementById('userEmail').value = "";
-        document.getElementById('userFeedback').value = "";
+    window.submitFeedback = async (event) => {
+    event.preventDefault();
+    
+    const email = document.getElementById('userEmail').value;
+    const feedback = document.getElementById('userFeedback').value;
+    const submitBtn = event.target.querySelector('button[type="submit"]');
+    
+    submitBtn.innerText = "Sending...";
+
+    try {
+        const response = await fetch('/api/feedback', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+                email: email, 
+                feedback: feedback 
+            })
+        });
+
+        if (response.ok) {
+            alert("Thank you for your feedback! 🐾");
+            document.getElementById('userEmail').value = "";
+            document.getElementById('userFeedback').value = "";
+        } else {
+            alert("Oops! The server rejected the request.");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Failed to connect to the server.");
+    } finally {
+        submitBtn.innerText = "Submit";
     }
+}
 
     window.switchPage = (pageId) => {
         let pages = document.querySelectorAll('.page-section');
@@ -1207,6 +1964,65 @@
         document.getElementById(pageId).classList.add('page-active');
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-</script>
 
+
+    // Age Calculation
+    const humanInput = document.getElementById('humanInput');
+    const catInput = document.getElementById('catInput');
+    const calcMessage = document.getElementById('calcMessage');
+
+    const calculateCatAge = (humanYears) => {
+        if (humanYears <= 15) return humanYears / 15;
+        if (humanYears <= 24) return 1 + ((humanYears - 15) / 9);
+        return 2 + ((humanYears - 24) / 4);
+    };
+
+    const calculateHumanAge = (catYears) => {
+        if (catYears <= 1) return catYears * 15;
+        if (catYears <= 2) return 15 + ((catYears - 1) * 9);
+        return 24 + ((catYears - 2) * 4);
+    };
+
+    const updateMessage = (catAge) => {
+        if (catAge <= 0) {
+            calcMessage.innerText = "Enter a value above to calculate the life stage.";
+        } else if (catAge < 1) {
+            calcMessage.innerHTML = "<strong>Life Stage: Kitten.</strong> Equivalent to human infancy and early childhood. Characterized by rapid physical growth and behavioral development.";
+        } else if (catAge < 3) {
+            calcMessage.innerHTML = "<strong>Life Stage: Junior.</strong> Equivalent to a human adolescent or young adult. Characterized by peak physical vitality.";
+        } else if (catAge < 7) {
+            calcMessage.innerHTML = "<strong>Life Stage: Prime.</strong> Equivalent to a human adult in their twenties or thirties. Represents peak physical and mental maturity.";
+        } else if (catAge < 11) {
+            calcMessage.innerHTML = "<strong>Life Stage: Mature.</strong> Equivalent to a middle-aged human. May begin to show a slight decrease in activity levels.";
+        } else {
+            calcMessage.innerHTML = "<strong>Life Stage: Senior / Geriatric.</strong> Equivalent to a human of retirement age. Requires careful monitoring of dietary needs and joint health.";
+        }
+    };
+
+    humanInput.addEventListener('input', (e) => {
+        const val = parseFloat(e.target.value);
+        if (!isNaN(val) && val > 0) {
+            const catAge = calculateCatAge(val);
+            catInput.value = catAge.toFixed(1); 
+            updateMessage(catAge);
+        } else {
+            catInput.value = '';
+            updateMessage(0);
+        }
+    });
+
+    catInput.addEventListener('input', (e) => {
+        const val = parseFloat(e.target.value);
+        if (!isNaN(val) && val > 0) {
+            const humanAge = calculateHumanAge(val);
+            humanInput.value = Math.round(humanAge); 
+            updateMessage(val);
+        } else {
+            humanInput.value = '';
+            updateMessage(0);
+        }
+    });
+
+</script>
+</body>
 </html>
