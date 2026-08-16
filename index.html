@@ -212,7 +212,6 @@
             background-color: #EDECEA;
             z-index: 9999;
             box-sizing: border-box;
-            width: 100%;
             height: auto;
             display: block;
             object-fit: cover;
@@ -252,11 +251,30 @@
         }
     
         .features a {
+            position: relative;
             text-decoration: none !important;
             color: #111 !important;
             font-family: 'Georgia', serif;
             font-size: 1.5rem;
-            transition: color 0.1s ease-in;
+        }
+
+        .features a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: #ffb800;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+            border-radius: 3px;
+        }
+
+        .features a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
         }
     
         .features a:hover {
@@ -269,7 +287,6 @@
             align-items: center;
             flex-wrap: nowrap;
             width: 100%;
-            gap: 30px;
             padding: 20px;
             margin-top: 10px;
             gap: 50px;
@@ -396,10 +413,6 @@
             justify-items: center;
         }
     
-        .box:nth-child(even) {
-            margin-top: 80px;
-        }
-    
         .box {
             background-color: white;
             border-radius: 12px;
@@ -409,8 +422,26 @@
             flex-direction: column;
             position: relative;
             box-shadow: 2px 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 2px 15px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .box:hover .card-paw {
+            animation: wigglePaw 0.6s ease-in-out;
         }
     
+        @keyframes wigglePaw {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(-20deg) scale(1.2); }
+            50% { transform: rotate(20deg) scale(1.2); }
+            75% { transform: rotate(-10deg) scale(1.2); }
+            100% { transform: rotate(0deg) scale(1); }
+        }
+
         .box-header {
             padding: 12px 20px;
             border-radius: 12px 12px 0 0;
@@ -462,6 +493,7 @@
             margin-top: 60px;
             overflow: hidden;
             flex-wrap: wrap;
+            padding: 80px 20px;
         }
     
         .photo {
@@ -493,10 +525,9 @@
         .feedbackbox {
             background-color: white;
             border-radius: 20px;
-            padding: 20px;
             width: 90%;
             max-width: 300px;
-            height: 80%;
+            height: auto;
             padding: 20px;
             display: flex;
             flex-direction: column;
@@ -542,13 +573,19 @@
             font-size: 14px;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
     
         .feedbackbox button:hover {
+            transform: scale(1.05);
             background-color: #333;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
     
+        .feedbackbox button:active {
+            transform: scale(0.95);
+        } 
+
         .flower {
             position: absolute;
             right: 20px;
@@ -1492,10 +1529,6 @@
                 box-sizing: border-box;
             }
     
-            .box:nth-child(even) {
-                margin-top: 0;
-            }
-    
             .box-header {
                 padding: 8px 10px;
                 font-size: 12px;
@@ -1767,26 +1800,23 @@
             <p>Loading...</p>
         </div>
     </div>
-
     <!-- Navigation -->
-    <div style=" width: 100%;">
-        <div class="nav">
-            <div class="logo">
-                <a href="javascript:void(0);" onclick="switchPage('home')">
-                    <img src="cat_logo.svg" alt="Logo">
-                </a>
-            </div>
-            <div class="features">
-                <a href="#" onclick="switchPage('home')">Home</a>
-                <a href="#" onclick="switchPage('calculation')">Age Calculation</a>
-                <a href="#" onclick="switchPage('behavior')">Behavior</a>
-                <a href="#" onclick="switchPage('food')">Food</a>
-            </div>
-            <div class="menu">
-                <a href="javascript:void(0)" onclick="openNav()">
-                    <img src="Vector 18.svg" alt="Header pattern" style="cursor: pointer;">
-                </a>
-            </div>
+    <div class="nav">
+        <div class="logo">
+            <a href="javascript:void(0);" onclick="switchPage('home')">
+                <img src="cat_logo.svg" alt="Logo">
+            </a>
+        </div>
+        <div class="features">
+            <a href="#" onclick="switchPage('home')">Home</a>
+            <a href="#" onclick="switchPage('calculation')">Age Calculation</a>
+            <a href="#" onclick="switchPage('behavior')">Behavior</a>
+            <a href="#" onclick="switchPage('food')">Food</a>
+        </div>
+        <div class="menu">
+            <a href="javascript:void(0)" onclick="openNav()">
+                <img src="Vector 18.svg" alt="Header pattern" style="cursor: pointer;">
+            </a>
         </div>
     </div>
 
@@ -1814,7 +1844,7 @@
     <!-- Home page -->
     <div id="home" class="page-section page-active">
         <div class="hero">
-            <img class="header" src="header.svg" width="1440%" height="85" alt="Header pattern">
+            <img class="header" src="header.svg" alt="Header pattern">
             <div class="textandcat">
                 <div class="text_card">
                     <h1>MEOW MEOW !!</h1>
@@ -2156,7 +2186,7 @@
         </div>
     </div>
 
-<script type="module">
+<script>
     // Loader Initialization
     const hideLoader = () => {
         setTimeout(() => {
@@ -2200,9 +2230,7 @@
         const loader = document.getElementById('loader-overlay');
         loader.classList.remove('hidden');
 
-        if (typeof window.closeNav === 'function') {
-            window.closeNav();
-        }
+        closeNav();
 
         setTimeout(() => {
             let pages = document.querySelectorAll('.page-section');
@@ -2216,7 +2244,7 @@
     };
 
     // Feedback Section
-    window.submitFeedback = async (event) => {
+    async function submitFeedback(event) {
         event.preventDefault();
     
         const email = document.getElementById('userEmail').value;
