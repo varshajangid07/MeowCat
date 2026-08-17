@@ -181,10 +181,22 @@
             color: #111;
             transition: color 0.2s ease;
             font-weight: 500;
+            display: block; 
+            padding: 12px 25px;
+            border-radius: 15px;
+            border: 1px solid transparent; 
+            margin: 0 -25px; 
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
     
         .sidebar-links a:hover {
-            color: #ffb800;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.35); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.6); 
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); 
+            transform: translateX(10px);
         }
     
         .sidebar-cat {
@@ -205,7 +217,7 @@
         }
     
         .header {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -225,7 +237,7 @@
             left: 0;
             width: 100%;
             background-color: transparent;
-            z-index: 9999;
+            z-index: 99999;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -346,6 +358,51 @@
             line-height: 1.6;
             margin-top: 15px;
             font-style: italic;
+        }
+
+        .text_card h1, .text_card h2, .text_card  p, #factButton {
+            opacity: 0; 
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        .text_card h1 {
+            animation-delay: 0.1s;
+        }
+
+        .text_card h2 {
+            animation-delay: 0.3s;
+        }
+
+        .text_card p {
+            animation-delay: 0.5s;
+        }
+
+        #factButton {
+            animation-delay: 0.7s;
+        }
+
+        .food-text h1, .food-text p {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        .food-text h1 {
+            animation-delay: 0.2s;
+        }
+
+        .food-text p {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         #factButton {
@@ -1458,11 +1515,13 @@
     
             .sidebar-links {
                 padding: 10px 30px;
-                gap: 25px;
+                gap: 15px;
             }
     
             .sidebar-links a {
                 font-size: 18px;
+                padding: 10px 20px;
+                margin: 0 -20px;
             }
     
             .sidebar-cat {
@@ -2266,20 +2325,12 @@
 
     // Page Switching (with Loader)
     window.switchPage = (pageId) => {
-        const loader = document.getElementById('loader-overlay');
-        loader.classList.remove('hidden');
+        if (typeof closeNav === 'function') closeNav();
 
-        closeNav();
-
-        setTimeout(() => {
-            let pages = document.querySelectorAll('.page-section');
-            pages.forEach(page => page.classList.remove('page-active'));
-            
-            document.getElementById(pageId).classList.add('page-active');
-            window.scrollTo({ top: 0, behavior: 'auto' }); 
-
-            loader.classList.add('hidden');
-        }, 700); 
+        let pages = document.querySelectorAll('.page-section');
+        pages.forEach(page => page.classList.remove('page-active'));
+        document.getElementById(pageId).classList.add('page-active');
+        window.scrollTo({ top: 0, behavior: 'auto' }); 
     };
 
     // Random CAT Fact API
