@@ -23,6 +23,68 @@
         *::after {
             box-sizing: border-box;
         }
+
+        * {
+            cursor: none !important; 
+        }
+
+        #custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 32px;
+            height: 32px;
+            background-color: #111111; 
+            -webkit-mask-image: url('Cursur_Paw.svg');
+            -webkit-mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-image: url('Cursur_Paw.svg');
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            pointer-events: none;
+            z-index: 99999999; 
+            transform: translate(-50%, -50%);
+            transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s ease;
+        }
+
+        #custom-cursor.cursor-hover {
+            background-color: #f17a2f; 
+            transform: translate(-50%, -50%) scale(1.3) rotate(-15deg);
+        }
+
+        #custom-cursor.cursor-click {
+            background-color: #FF8F8F; 
+            transform: translate(-50%, -50%) scale(0.8) rotate(-20deg);
+        }
+
+        .paw-stamp {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            background-color: #111111; 
+            -webkit-mask-image: url('Cursur_Paw.svg');
+            -webkit-mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-image: url('Cursur_Paw.svg');
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            pointer-events: none; 
+            z-index: 999998; 
+            animation: fadePawStamp 2s ease-out forwards;
+        }
+
+        @keyframes fadePawStamp {
+            0%{ 
+                opacity: 0.6; 
+            }
+            100% { 
+                opacity: 0; 
+            }
+        }
     
         h1,
         h2,
@@ -851,7 +913,7 @@
     
         #behavior .main {
             background-color: #B2A28F;
-            padding: 60px 40px 1000px 40px;
+            padding: 60px 40px 100px 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -981,6 +1043,29 @@
         }
     
         /* Food  Section */
+        .falling-fish {
+            position: absolute;
+            width: 45px;
+            height: auto;
+            pointer-events: none; 
+            z-index: 999999;
+            transform: translate(-50%, -50%); 
+            animation: fishGravity 1.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+        }
+
+        @keyframes fishGravity {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, 800px) rotate(180deg);
+            }
+        }
         .food-hero {
             position: relative;
             width: 100%;
@@ -990,44 +1075,7 @@
             align-items: center;
             padding-top: 150px;
             z-index: 20;
-        }
-    
-        .hanging-decorations {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 10;
-            pointer-events: none;
-        }
-    
-        .black-ceiling {
-            width: 100%;
-            height: 20px;
-            background-color: #111111;
-        }
-    
-        .hanging-fishes {
-            display: flex;
-            justify-content: center;
-            gap: 7vw;
-            width: 100%;
-            padding-left: 2%;
-        }
-    
-        .hanging-fish {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-    
-        .string {
-            width: 1.5px;
-            height: 90px;
-            background-color: #555555;
-        }
+        }       
     
         .hanging-fish img {
             height: 40px;
@@ -1064,65 +1112,7 @@
         .hanging-fish:nth-child(7) img {
             animation-delay: 5.8s;
         }
-    
-        @keyframes fishDrop {
-    
-            0%,
-            10% {
-                transform: translate(0, 0) rotate(0deg);
-                opacity: 1;
-            }
-    
-            12% {
-                transform: translateX(-3px) rotate(-10deg);
-                opacity: 1;
-            }
-    
-            14% {
-                transform: translateX(3px) rotate(10deg);
-                opacity: 1;
-            }
-    
-            16% {
-                transform: translateX(-3px) rotate(-10deg);
-                opacity: 1;
-            }
-    
-            18% {
-                transform: translateX(3px) rotate(10deg);
-                opacity: 1;
-            }
-    
-            20% {
-                transform: translate(0, 0) rotate(0deg);
-                opacity: 1;
-            }
-    
-            25% {
-                transform: translateY(40px) rotate(20deg);
-                opacity: 1;
-            }
-    
-            35% {
-                transform: translateY(800px) rotate(70deg);
-                opacity: 0;
-            }
-    
-            95% {
-                transform: translateY(800px) rotate(70deg);
-                opacity: 0;
-            }
-    
-            96% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-    
-            100% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-        }
+
     
         .food-container {
             display: flex;
@@ -1503,6 +1493,13 @@
     
         /* Small device */
         @media (max-width: 768px) {
+
+            * {
+                cursor: auto !important;
+            }
+            #custom-cursor {
+                display: none !important;
+            }
     
             .sidebar {
                 max-width: 80vw;
@@ -1888,6 +1885,8 @@
     </style>
 </head>
 <body>
+    <div id="custom-cursor"></div>
+
     <!-- Cat Paw Loader -->
     <div id="loader-overlay" class="loader-overlay">
         <div class="loader">
@@ -2169,34 +2168,6 @@
     <!-- Food -->
     <div id="food" class="page-section">
         <div class="food-hero">
-
-            <div class="hanging-decorations">
-                <div class="black-ceiling"></div>
-                <div class="hanging-fishes">
-                    <div class="hanging-fish">
-                        <div class="string"></div><img src="fish.svg" alt="purple bone">
-                    </div>
-                    <div class="hanging-fish">
-                        <div class="string"></div><img src="fish2.svg" alt="brown bone">
-                    </div>
-                    <div class="hanging-fish">
-                        <div class="string"></div><img src="fish3.svg" alt="pink bone">
-                    </div>
-                    <div class="hanging-fish">
-                        <div class="string"></div><img src="fish4.svg" alt="orange bone">
-                    </div>
-                    <div class="hanging-fish">
-                        <div class="string"></div><img src="fish5.svg" alt="black bone">
-                    </div>
-                    <div class="hanging-fish">
-                        <div class="string"></div><img src="fish6.svg" alt="yellow bone">
-                    </div>
-                    <div class="hanging-fish">
-                        <div class="string"></div><img src="fish7.svg" alt="green bone">
-                    </div>
-                </div>
-            </div>
-
             <div class="food-container">
                 <div class="food-text">
                     <h1>What's Mine is Mine.<br>What's Yours is Also Mine.</h1>
@@ -2288,6 +2259,51 @@
     </div>
 
 <script>
+    // Cursur Paw
+    const customCursor = document.getElementById('custom-cursor');
+
+    document.addEventListener('mousemove', (e) => {
+        customCursor.style.left = e.clientX + 'px';
+        customCursor.style.top = e.clientY + 'px';
+    });
+
+    document.addEventListener('mousedown', () => {
+        customCursor.classList.add('cursor-click');
+    });
+    
+    document.addEventListener('mouseup', () => {
+        customCursor.classList.remove('cursor-click');
+    });
+
+    const clickables = document.querySelectorAll('a, button, .closebtn, .menu img, .box, input, textarea');
+    
+    clickables.forEach((el) => {
+        el.addEventListener('mouseenter', () => {
+            customCursor.classList.add('cursor-hover');
+        });
+        el.addEventListener('mouseleave', () => {
+            customCursor.classList.remove('cursor-hover');
+        });
+    });
+
+    // Paw Print on Clicking, Fades in 2 Seconds
+    document.addEventListener('mousedown', function(e) {
+        const stamp = document.createElement('div');
+        stamp.classList.add('paw-stamp');
+
+        stamp.style.left = e.pageX + 'px';
+        stamp.style.top = e.pageY + 'px';
+
+        const randomRotation = Math.floor(Math.random() * 40) - 20; 
+        stamp.style.transform = `translate(-50%, -50%) rotate(${randomRotation}deg)`;
+
+        document.body.appendChild(stamp);
+
+        setTimeout(() => {
+            stamp.remove();
+        }, 2000);
+    });
+
     // Loader Initialization
     const hideLoader = () => {
         setTimeout(() => {
@@ -2447,6 +2463,34 @@
             humanInput.value = '';
             updateMessage(0);
         }
+    });
+
+    // Fish Drops on clicking on the Food Hero Section
+    const foodHero = document.querySelector('.food-hero');
+    
+    const fishAssets = [
+        'fish.svg', 'fish2.svg', 'fish3.svg', 
+        'fish4.svg', 'fish5.svg', 'fish6.svg', 'fish7.svg'
+    ];
+
+    foodHero.addEventListener('mousedown', function(e) {
+        const droppingFish = document.createElement('img');
+        
+        const randomFish = fishAssets[Math.floor(Math.random() * fishAssets.length)];
+        droppingFish.src = randomFish;
+        droppingFish.classList.add('falling-fish');
+
+        droppingFish.style.left = e.pageX + 'px';
+        droppingFish.style.top = e.pageY + 'px';
+
+        const randomStartRotation = Math.floor(Math.random() * 60) - 30; 
+        droppingFish.style.transform = `translate(-50%, -50%) rotate(${randomStartRotation}deg)`;
+
+        document.body.appendChild(droppingFish);
+
+        setTimeout(() => {
+            droppingFish.remove();
+        }, 1500);
     });
 </script>
 </body>
