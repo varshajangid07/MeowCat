@@ -30,8 +30,9 @@ What did the human use to build my digital scratching post? Let me bat these bul
 *   🎨 **Figma:** Where the human drew pictures of me (UI/UX design and SVG assets).
 *   🚀 **Next.js:** This makes the pages load faster than I zoom down the hallway at 3:00 AM. (Seamless routing and optimized performance).
 *   💅 **HTML5 & CSS3:** The invisible boxes I like to sit in. Features custom responsive layouts, CSS variables, and extensive keyframe animations.
+*   🧠 **Vanilla JavaScript:** For tracking your inferior mouse movements, manipulating the DOM, and making things fall exactly like I push them off tables.
 *   🐟 **Firebase Database:** Where I hoard your feedback securely, exactly like I hoard stolen milk jug rings under the refrigerator.
-*   🧠 **Cat Fact API:** (`https://catfact.ninja/fact`) Used to fetch random facts about my species, because you humans desperately need to be educated.
+*   📡 **Cat Fact API:** (`https://catfact.ninja/fact`) Used to fetch random facts about my species, because you humans desperately need to be educated.
 
 ---
 
@@ -43,7 +44,7 @@ The website is a Single Page Application (SPA). That means no annoying page relo
 "No Thoughts. Just Fluff." That is my life motto.
 *   **Dynamic Hero Text:** The text cascades onto the screen using a staggered CSS `fadeInUp` animation. It looks like a waterfall. I want to swat it.
 *   **Interactive Info Cards:** The "What Makes Cats So Special" cards lift up when you hover your little mouse cursor over them. They even have a tiny paw that wiggles! 
-*   **Cat Fact Generator:** Click the button, get a fact. *Meow.*
+*   **Cat Fact Generator:** Click the button, get a live fact pulled directly from a REST API. *Meow.*
 *   **Feedback Section:** A Meow-styled form. Leave me a compliment. It goes straight to the Firebase Database.
 
 ### 2. 🧮 Age Calculation Page
@@ -56,7 +57,7 @@ A translation guide, because you humans are very slow at understanding what I wa
 
 ### 4. 🐟 Food Page
 The most important page on the internet. We are "obligate carnivores." Feed me meat.
-*   **Immersive Animations:** Look up! The ceiling has dynamically swinging fish toys hanging by strings. I coded them myself using complex CSS `@keyframes` (`fishDrop`). 
+*   **Interactive Fish Rain:** Static backgrounds bore me. Now, when you click anywhere in the hero section, it rains randomly colored fish bones directly from your cursor! I am a generous god, but you must click to feed me.
 *   **Dietary Guidelines:** Read the "Absolutely Not" list of toxic foods.
 *   **Floating Backgrounds:** Semi-transparent paw prints randomly fade in and out across the background. Spooky!
 
@@ -74,6 +75,15 @@ I didn't let the human use heavy JavaScript libraries. We used pure CSS magic to
 *   **📦 Interactive Info Cards & The Wiggling Paw:** 
     Go ahead, hover your cursor over my "What Makes Cats So Special?" feature cards. I dare you. The entire card (`.box`) lifts up smoothly using `transform: translateY(-10px)` and casts a deeper shadow. 
     *   **The Best Part:** When you hover over the card, the little white paw icon (`.card-paw`) in the bottom corner executes a custom `@keyframes wigglePaw` animation. It rotates back and forth (`20deg` to `-20deg`) and scales up, looking exactly like I am batting at a moth. *Swat, swat, swat.*
+
+*   **🖱️ The Dynamic Paw Cursor & Click Stamps:** 
+    Standard mouse pointers are for dogs. I made the human hide it and replace it with a custom SVG paw that tilts and changes color when you hover or click. 
+    *   **How it works:** We used the CSS `mask-image` property (like a cookie cutter) to dynamically change my paw's fill color on different interactions.
+    *   **The Chaos Element:** Every time you click, a fading paw print is stamped onto the screen! My human used a JavaScript `mousedown` event listener to track your `pageX/Y` coordinates and `document.createElement()` to leave my mark. They also used `setTimeout()` to safely remove them from the DOM after 2 seconds so your browser doesn't crash from memory overload. You're welcome.
+
+*   **🐟 The "Gravity" Fish Drop:** 
+    *   **How it works:** A JavaScript array holds my vibrant fish SVG assets. `Math.random()` picks a random fish, and `appendChild` spawns it right where you clicked.
+    *   **The Physics:** Things fall when I push them off tables. To simulate this realistic gravity, the human wrote a `@keyframes` animation using a custom `cubic-bezier` timing function. The fish actually accelerate realistically as they tumble off your screen into the void.
 
 ---
 
