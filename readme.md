@@ -19,11 +19,18 @@ Now, sit still. I am going to explain how my website works. *Purrrr.*
 
 Why this logo, you ask? Look at it. It is *me*. Perfectly captured in scalable vector graphics. 
 
+<p align="center">
+  <img src="cat_logo.svg" alt="Meow Cat Logo" width="100"/>
+</p>
+
 Notice the piercing eyes judging your code, the aerodynamic ears ready to ignore your commands, and the sleek silhouette designed specifically to blend into your pile of clean laundry. My human servant spent hours in Figma trying to capture my divine essence, and I only stepped on their mouse twice while they did it. I consider it a masterpiece.
 
 ---
 
 ## 🧶 The Shiny String (Tech Stack)
+<p align="center">
+  <img src="https://i.pinimg.com/originals/70/58/e9/7058e9c8a730e84706a5217dee0cc3a7.gif" alt="Cat signing off" width="250"/>
+</p>
 
 What did the human use to build my digital scratching post? Let me bat these bullet points around for you:
 
@@ -37,6 +44,10 @@ What did the human use to build my digital scratching post? Let me bat these bul
 ---
 
 ## 🗺️ My Domain (Pages & Features)
+
+<p align="center">
+  <img src="https://i.pinimg.com/originals/d6/a3/16/d6a316bfc4ffc1ffde8376e9fa93adde.gif" alt="Cat signing off" width="250"/>
+</p>
 
 The website is a Single Page Application (SPA). That means no annoying page reloads—just smooth transitions, exactly like how I transition from sleeping on the couch to sleeping on your clean laundry. 
 
@@ -116,7 +127,7 @@ const calculateHumanAge = (catYears) => {
 
 ## 👤 The Human Servant (Author)
 
-I suppose credit must be given to the opposable thumbs that typed this out while I supervised. If you wish to hire my human (so they can afford to buy me more premium wet food), you may contact them here:
+I suppose credit must be given to the opposable thumbs that typed this out while I supervised. If you wish to hire my human (so she can afford to buy me more premium wet food), you may contact her here:
 
 * **Name:** Varsha Jangid
 * **LinkedIn:** [Connect with my human](https://www.linkedin.com/in/varsha-jangid-675120304)
@@ -141,5 +152,12 @@ but it would deteriorate the cat."
 ```
 
 *Yowl.* Now, close this repository. It is time for my scheduled 18-hour nap in a cardboard box that is entirely too small for me. *Meow out.* 💤
+
+<br>
+<p align="center">
+  <img src="https://i.pinimg.com/originals/36/71/d8/3671d8a154c84e29885d44bb0f6e8d53.gif" alt="Cat signing off" width="250"/>
+</p>
+
+<br>
 
 ---
