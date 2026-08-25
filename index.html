@@ -798,6 +798,23 @@
             align-items: center;
             gap: 15px;
         }
+
+        .footer-animated-logo {
+            width: 70px;
+            height: auto;
+            margin-bottom: 5px;
+            animation: floatAndTilt 4s ease-in-out infinite;
+        }
+
+        @keyframes floatAndTilt {
+            0% { 
+                transform: translateY(0) ; 
+            } 50% { 
+                transform: translateY(-8px); 
+            } 100% { 
+                transform: translateY(0) ; 
+            }
+        }
     
         .social-links,
         .footer-links {
@@ -2519,6 +2536,7 @@
         <div class="bottomcat"><img src="bottom_black_cat.svg" alt=""></div>
         <div class="lower">
             <div class="footer-content">
+                <img src="cat_logo.svg" alt="Meow Cat Logo" class="footer-animated-logo">
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/varsha-jangid-675120304">Linkedin</a>
                     <a href="https://github.com/varshajangid07">Github</a>
