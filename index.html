@@ -1361,6 +1361,20 @@
             height: auto;
             z-index: 2;
         }
+
+        .quote-word {
+            opacity: 0;
+            display: inline-block;
+            transform: translateY(10px);
+            animation: popInWord 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        @keyframes popInWord {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     
     
         /* Age Calculation section */
@@ -2475,12 +2489,7 @@
             <div class="food-quote-section">
                 <img src="bg_paw.svg" class="bg-paw paw-quote-1" alt="paw print">
                 <img src="bg_paw.svg" class="bg-paw paw-quote-2" alt="paw print">
-                <p class="quote-text">
-                    "Owners of dogs will have noticed that, if you provide them with food and water and shelter and
-                    affection, they will think you are god. Whereas owners of cats are compelled to realize that, if you
-                    provide them with food and water and shelter and affection, they draw the conclusion that they are
-                    gods." <br>— Christopher Hitchens
-                </p>
+                <p class="quote-text" id="animated-quote"></p>
                 <img src="white_paw.svg" class="quote-cat-icon" alt="Cat face icon">
             </div>
         </div>
@@ -2784,6 +2793,37 @@
             droppingFish.remove();
         }, 1500);
     });
+
+    const setupAnimatedQuote = () => {
+        const quoteContainer = document.getElementById('animated-quote');
+        if (!quoteContainer) return;
+
+        const quoteText = `"Owners of dogs will have noticed that, if you provide them with food and water and shelter and affection, they will think you are god. Whereas owners of cats are compelled to realize that, if you provide them with food and water and shelter and affection, they draw the conclusion that they are gods."`;
+        const authorText = "— Christopher Hitchens";
+
+        const words = quoteText.split(' ');
+        let animatedHTML = '';
+
+        words.forEach((word, index) => {
+            animatedHTML += `<span class="quote-word" style="animation-delay: ${index * 0.08}s">${word}&nbsp;</span>`;
+        });
+
+        animatedHTML += `<br><br><span class="quote-word" style="animation-delay: ${(words.length + 5) * 0.08}s"><strong>${authorText}</strong></span>`;
+
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.innerHTML = animatedHTML;
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, { threshold: 0.4 });
+
+        observer.observe(quoteContainer);
+
+    };
+
+    setupAnimatedQuote();
 </script>
 </body>
 </html>
