@@ -1,4 +1,5 @@
 import admin from 'firebase-admin';
+import createModule from './validator.js';
 
 if (!admin.apps.length) {
     admin.initializeApp({
@@ -10,6 +11,8 @@ if (!admin.apps.length) {
     });
 }
 
+let wasmModule = null;
+
 export default async function handler(req, res) {
     if (req.method === 'POST') {
         try {
@@ -17,6 +20,23 @@ export default async function handler(req, res) {
             if (!email || !feedback) {
                 return res.status(400).json({ error: "Email and feedback are required" });
             }
+            if (!wasmModule) {
+                wasmModule = await createModule();
+            }
+            const isValidEmail = wasmModule.ccall(
+                'is_valid_email', 'boolean', ['string'], [email]
+            );
+            if (!isValidEmail) {
+                return res.status(400).json({ error: "Invalid email format." });
+            }
+
+            const isValidFeedback = wasmModule.ccall(
+                'is_valid_feedback', 'boolean', ['string'], [feedback]
+            );
+            if (!isValidFeedback) {
+                return res.status(400).json({ error: "Feedback cannot be empty or contain links/spam." });
+            }
+            
             await admin.firestore().collection('feedbacks').add({ 
                 email: email, 
                 feedback: feedback,

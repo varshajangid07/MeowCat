@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/feedback.js": {
+      "includeFiles": "api/*.wasm"
+    }
+  }
+}
