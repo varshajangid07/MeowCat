@@ -1722,6 +1722,46 @@
             animation: continuousFall 10s linear infinite 3s; 
         }
 
+        /* Custom Notification Toast */
+        .notification-box {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background-color: #111;
+            color: #fff;
+            padding: 16px 30px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 9999999;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        #notification-icon {
+            width: 28px;
+            height: auto;
+            flex-shrink: 0;
+            object-fit: contain;
+        }
+
+        .notification-box.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .notification-box.error {
+            background-color: #FF8F8F;
+            color: #111;
+        }
+
         @keyframes continuousFall {
             0% { 
                 transform: translateY(-100px) rotate(0deg); 
@@ -2559,6 +2599,12 @@
         </div>
     </div>
 
+    <!-- Custom Notification Box -->
+    <div id="custom-notification" class="notification-box">
+        <img id="notification-icon" src="src/white_paw.svg" alt="icon">
+        <span id="notification-message">Message goes here</span>
+    </div>
+
 <script>
     // Cursur Paw
     const customCursor = document.getElementById('custom-cursor');
@@ -2672,6 +2718,30 @@
         }
     }
 
+    // Success Messages
+    function showNotification(message, isError = false) {
+        const notif = document.getElementById('custom-notification');
+        const msgEl = document.getElementById('notification-message');
+        const iconEl = document.getElementById('notification-icon');
+
+        msgEl.innerText = message;
+        
+        if (isError) {
+            notif.classList.add('error');
+            iconEl.src = 'src/black_cat.svg'; 
+        } else {
+            notif.classList.remove('error');
+            iconEl.src = 'src/white_paw.svg'; 
+        }
+
+        notif.classList.add('show');
+
+        setTimeout(() => {
+            notif.classList.remove('show');
+        }, 3500);
+    }
+
+
     // Feedback Section
     async function submitFeedback(event) {
         event.preventDefault();
@@ -2695,15 +2765,16 @@
             });
 
             if (response.ok) {
-                alert("Thank you for your feedback! 🐾");
+                showNotification("Thank you for your feedback!");
                 document.getElementById('userEmail').value = "";
                 document.getElementById('userFeedback').value = "";
             } else {
-                alert("Oops! The server rejected the request.");
+                const errorData = await response.json();
+                showNotification(errorData.error || "Oops! The server rejected the request.", true);
             }
         } catch (error) {
             console.error("Error:", error);
-            alert("Failed to connect to the server.");
+            showNotification("Failed to connect to the server.", true);
         } finally {
             submitBtn.innerText = "Submit";
         }
