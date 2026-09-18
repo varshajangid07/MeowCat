@@ -1,8 +1,5 @@
 import admin from 'firebase-admin';
-import { createRequire } from 'module';
-
-const require = createRequire(import.meta.url);
-const createModule = require('../lib/validator.js');
+import createModule from '../lib/validator.cjs';
 
 if (!admin.apps.length) {
     admin.initializeApp({
