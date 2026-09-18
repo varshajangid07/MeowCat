@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/feedback.js": {
-      "includeFiles": "api/*.wasm"
+      "includeFiles": "lib/*.wasm"
     }
   }
 }

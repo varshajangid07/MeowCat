@@ -1,5 +1,5 @@
 import admin from 'firebase-admin';
-import createModule from './validator.js';
+import createModule from '../lib/validator.js';
 
 if (!admin.apps.length) {
     admin.initializeApp({
